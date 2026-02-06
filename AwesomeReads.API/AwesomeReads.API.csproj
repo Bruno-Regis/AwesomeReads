@@ -1,0 +1,24 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.2" />
+    <PackageReference Include="Scalar.AspNetCore" Version="2.12.34" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Controllers\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AwesomeReads.Application\AwesomeReads.Application.csproj" />
+    <ProjectReference Include="..\AwesomeReads.Core\AwesomeReads.Core.csproj" />
+    <ProjectReference Include="..\AwesomeReads.Infrastructure\AwesomeReads.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

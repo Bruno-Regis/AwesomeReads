@@ -1,0 +1,6 @@
+<Solution>
+  <Project Path="AwesomeReads.API/AwesomeReads.API.csproj" />
+  <Project Path="AwesomeReads.Application/AwesomeReads.Application.csproj" Id="2560fb23-848e-4ecd-a1e6-f5c793c60836" />
+  <Project Path="AwesomeReads.Core/AwesomeReads.Core.csproj" Id="54cefeb2-ffa0-4e0f-b94c-713dcd2b03c4" />
+  <Project Path="AwesomeReads.Infrastructure/AwesomeReads.Infrastructure.csproj" Id="4795883b-dd60-4766-b79d-fe6b211bdae5" />
+</Solution>

@@ -1,0 +1,14 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net10.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AwesomeReads.Core\AwesomeReads.Core.csproj" />
+    <ProjectReference Include="..\AwesomeReads.Infrastructure\AwesomeReads.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>
