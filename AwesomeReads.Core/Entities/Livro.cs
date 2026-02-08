@@ -4,10 +4,11 @@ namespace AwesomeReads.Core.Entities
 {
     public class Livro : BaseEntity
     {
+        private Livro() { }
         public Livro(string titulo, string descricao, string iSBN, string autor,
             string editora, GeneroLivroEnum genero,
             int anoDePublicacao, int quantidadeDePaginas,
-            decimal notaMedia, byte capaLivro, List<Avaliacao> avaliacoes)
+            decimal notaMedia,List<Avaliacao> avaliacoes)
         {
             Titulo = titulo;
             Descricao = descricao;
@@ -18,7 +19,6 @@ namespace AwesomeReads.Core.Entities
             AnoDePublicacao = anoDePublicacao;
             QuantidadeDePaginas = quantidadeDePaginas;
             NotaMedia = notaMedia;
-            CapaLivro = capaLivro;
             Avaliacoes = avaliacoes;
         }
 
@@ -31,8 +31,14 @@ namespace AwesomeReads.Core.Entities
         public int AnoDePublicacao { get; private set; }
         public int QuantidadeDePaginas { get; private set; }
         public decimal NotaMedia { get; private set; }
-        public byte CapaLivro { get; private set; } //CHECAR Tipagem
+        public byte[] CapaLivro { get; private set; } //CHECAR Tipagem
         public List<Avaliacao> Avaliacoes { get; private set; } = new List<Avaliacao>();
+
+        
+        public void AtualizarCapaLivro(byte[] capa)
+        {
+            CapaLivro = capa;
+        }
 
         public void AdicionarAvaliacao(Avaliacao avaliacao)
         {

@@ -39,4 +39,4 @@ namespace AwesomeReads.Core.Entities
     }
 
 }
-}
+
