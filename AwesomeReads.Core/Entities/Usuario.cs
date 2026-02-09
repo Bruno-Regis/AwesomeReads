@@ -7,12 +7,12 @@ namespace AwesomeReads.Core.Entities
     public class Usuario : BaseEntity
     {
         private Usuario() { }
-        public Usuario(string email, string nome, string senha, List<Avaliacao> avaliacoes)
+        public Usuario(string email, string nome, string senha)
         {
             Email = email;
             Nome = nome;
             Senha = senha;
-            Avaliacoes = avaliacoes;
+            Avaliacoes = new List<Avaliacao>();
         }
 
         public string Email { get; private set; }

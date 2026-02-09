@@ -1,4 +1,6 @@
-﻿using AwesomeReads.Infrastructure.Persistence;
+﻿using AwesomeReads.Core.Repositories;
+using AwesomeReads.Infrastructure.Persistence;
+using AwesomeReads.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -14,7 +16,8 @@ namespace AwesomeReads.Infrastructure
         public static IServiceCollection AddInfrastructure(this IServiceCollection services, IConfiguration configuration)
         {
             services
-                .AddData(configuration);
+                .AddData(configuration)
+                .AddRepositories();
 
             return services;
         }
@@ -26,5 +29,10 @@ namespace AwesomeReads.Infrastructure
             return services;
         }
 
+        private static IServiceCollection AddRepositories(this IServiceCollection services)
+        {
+            services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            return services;
+        }
     }
 }
