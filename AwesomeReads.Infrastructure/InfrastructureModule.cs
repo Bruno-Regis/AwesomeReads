@@ -4,10 +4,6 @@ using AwesomeReads.Infrastructure.Persistence.Repositories;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using System;
-using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using System.Text;
 
 namespace AwesomeReads.Infrastructure
 {
@@ -33,6 +29,7 @@ namespace AwesomeReads.Infrastructure
         {
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
             services.AddScoped<ILivroRepository, LivroRepository>();
+            services.AddScoped<IAvaliacaoRepository, AvaliacaoRepository>();
             return services;
         }
     }

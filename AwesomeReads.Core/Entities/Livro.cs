@@ -7,8 +7,7 @@ namespace AwesomeReads.Core.Entities
         private Livro() { }
         public Livro(string titulo, string descricao, string iSBN, string autor,
             string editora, GeneroLivroEnum genero,
-            int anoDePublicacao, int quantidadeDePaginas,
-            decimal notaMedia)
+            int anoDePublicacao, int quantidadeDePaginas)
         {
             Titulo = titulo;
             Descricao = descricao;
@@ -18,7 +17,7 @@ namespace AwesomeReads.Core.Entities
             Genero = genero;
             AnoDePublicacao = anoDePublicacao;
             QuantidadeDePaginas = quantidadeDePaginas;
-            NotaMedia = notaMedia;
+            NotaMedia = 0.0m;
             Avaliacoes = new List<Avaliacao>();
         }
 
@@ -49,7 +48,7 @@ namespace AwesomeReads.Core.Entities
         public void AtualizarNotaMedia()
         {
             NotaMedia = Avaliacoes?.Any() == true
-                ? (decimal)Avaliacoes.Average(a => a.Nota) : 0.0m;
+                ? (decimal)Avaliacoes.Where(a => !a.IsDeleted).Average(a => a.Nota) : 0.0m;
         }
     }
 }

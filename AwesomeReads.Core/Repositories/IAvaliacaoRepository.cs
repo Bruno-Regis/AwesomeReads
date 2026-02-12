@@ -10,6 +10,7 @@ namespace AwesomeReads.Core.Repositories
         Task<List<Avaliacao>> GetAllPorLivroAsync(int livroId);
         Task<int> AddAsync(Avaliacao avaliacao);
         Task UpdateAsync(Avaliacao avaliacao);
+        Task<Avaliacao?> GetDetailsByIdAsync(int id);
     }
 }
  

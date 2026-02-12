@@ -33,6 +33,15 @@ namespace AwesomeReads.Infrastructure.Persistence.Repositories
             return avaliacoes;
         }
 
+        public async Task<Avaliacao?> GetDetailsByIdAsync(int id)
+        {
+           return await _context
+                .Avaliacoes
+                .Include(a => a.Usuario)
+                .Include(a => a.Livro)
+                .SingleOrDefaultAsync(a => a.Id == id);
+        }
+
         public async Task UpdateAsync(Avaliacao avaliacao)
         {
             _context.Avaliacoes.Update(avaliacao);

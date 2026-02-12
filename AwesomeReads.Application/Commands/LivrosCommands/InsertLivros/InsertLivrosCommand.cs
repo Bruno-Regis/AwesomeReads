@@ -15,9 +15,8 @@ namespace AwesomeReads.Application.Commands.LivrosCommands.InsertLivros
         public GeneroLivroEnum Genero { get; set; }
         public int AnoDePublicacao { get; set; }
         public int QuantidadeDePaginas { get; set; }
-        public decimal NotaMedia { get; set; }
 
         public Livro ToEntity()
-            => new(Titulo, Descricao, ISBN, Autor, Editora, Genero, AnoDePublicacao, QuantidadeDePaginas, NotaMedia);
+            => new(Titulo, Descricao, ISBN, Autor, Editora, Genero, AnoDePublicacao, QuantidadeDePaginas);
     }
 }
