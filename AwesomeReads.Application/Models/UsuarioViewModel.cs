@@ -32,6 +32,5 @@ namespace AwesomeReads.Application.Models
         }
 
         }
-
 }
 

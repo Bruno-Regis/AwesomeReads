@@ -8,10 +8,11 @@ namespace AwesomeReads.Application.Models
 {
     public class LivroViewModel
     {
-        public LivroViewModel(string titulo, string descricao, string iSBN, string autor,
+        public LivroViewModel(int id, string titulo, string descricao, string iSBN, string autor,
             string editora, GeneroLivroEnum genero, int anoDePublicacao, int quantidadeDePaginas,
             decimal notaMedia, int quantidadeDeAvaliacoes, List<AvaliacaoViewModel> avaliacoes)
         {
+            Id = id;
             Titulo = titulo;
             Descricao = descricao;
             ISBN = iSBN;
@@ -25,6 +26,7 @@ namespace AwesomeReads.Application.Models
             Avaliacoes = avaliacoes;
         }
 
+        public int Id { get; set; }
         public string Titulo { get; set; }
         public string Descricao { get; set; }
         public string ISBN { get; set; }
@@ -41,6 +43,7 @@ namespace AwesomeReads.Application.Models
         {
             return new LivroViewModel
             (
+                livro.Id,
                 livro.Titulo,
                 livro.Descricao,
                 livro.ISBN,

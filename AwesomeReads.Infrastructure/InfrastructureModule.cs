@@ -32,6 +32,7 @@ namespace AwesomeReads.Infrastructure
         private static IServiceCollection AddRepositories(this IServiceCollection services)
         {
             services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+            services.AddScoped<ILivroRepository, LivroRepository>();
             return services;
         }
     }

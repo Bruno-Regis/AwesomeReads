@@ -13,7 +13,7 @@ namespace AwesomeReads.Application.Queries.UsuariosQueries.GetUsuarioById
         }
         public async Task<ResultViewModel<UsuarioViewModel>> Handle(GetUsuarioByIdQuery request, CancellationToken cancellationToken)
         {
-            var usuario = await _usuarioRepository.GetByIdAsync(request.Id);
+            var usuario = await _usuarioRepository.GetDetailsByIdAsync(request.Id);
             if (usuario == null)
             {
                 return ResultViewModel<UsuarioViewModel>.Error("Usuário não encontrado");

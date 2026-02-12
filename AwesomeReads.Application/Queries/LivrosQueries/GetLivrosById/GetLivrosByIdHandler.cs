@@ -15,7 +15,7 @@ namespace AwesomeReads.Application.Queries.LivrosQueries.GetLivrosById
         }
         public async Task<ResultViewModel<LivroViewModel>> Handle(GetLivrosByIdQuery request, CancellationToken cancellationToken)
         {
-            var livro = await _livroRepository.GetByIdAsync(request.Id);
+            var livro = await _livroRepository.GetDetailsByIdAsync(request.Id);
             if (livro is null)
             {
                 return ResultViewModel<LivroViewModel>.Error("Livro não encontrado");

@@ -74,7 +74,8 @@ namespace AwesomeReads.Infrastructure.Persistence.Configurations
 
             builder
                 .Property(l => l.CapaLivro)
-                .HasMaxLength(5242880);
+                .HasMaxLength(5242880)
+                .IsRequired(false);
         }
     }
 }
