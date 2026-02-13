@@ -14,6 +14,11 @@ namespace AwesomeReads.Application.Commands.UsersCommands.InsertUser
         }
         public async Task<ResultViewModel<int>> Handle(InsertUsuariosCommand request, CancellationToken cancellationToken)
         {
+            var usuarioJaExiste = await _usuarioRepository.ExistsEmailAsync(request.Email);
+
+            if (usuarioJaExiste)
+                return ResultViewModel<int>.Error("Já existe um usuário com este e-mail.");
+
             var usuario = request.ToEntity();
             await _usuarioRepository.AddAsync(usuario);
 

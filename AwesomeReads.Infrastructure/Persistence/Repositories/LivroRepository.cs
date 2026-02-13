@@ -27,6 +27,11 @@ namespace AwesomeReads.Infrastructure.Persistence.Repositories
             return await _context.Livros.AnyAsync(l => l.Id == id);
         }
 
+        public async Task<bool> ExistsISBNAsync(string isbn)
+        {
+            return await _context.Livros.AnyAsync(l => l.ISBN == isbn);
+        }
+
         public async Task<List<Livro>> GetAllAsync()
         {
             return await _context.Livros.ToListAsync();

@@ -10,5 +10,6 @@ namespace AwesomeReads.Core.Repositories
         Task<int> AddAsync(Livro livro); // ok
         Task<bool> ExistsAsync(int id);
         Task UpdateAsync(Livro livro); // ok
+        Task<bool> ExistsISBNAsync(string isbn);
     }
 }

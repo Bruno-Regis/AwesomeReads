@@ -27,6 +27,11 @@ namespace AwesomeReads.Infrastructure.Persistence.Repositories
             return await _context.Usuarios.AnyAsync(u => u.Id == id);
         }
 
+        public async Task<bool> ExistsEmailAsync(string email)
+        {
+            return await _context.Usuarios.AnyAsync(u => u.Email == email);
+        }
+
         public async Task<List<Usuario>> GetAllAsync()
         {
             var usuarios = await _context.Usuarios.ToListAsync();
