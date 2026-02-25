@@ -1,0 +1,37 @@
+<app-default-login-layout
+  title="Entre na sua conta"
+  primaryBtnText="Entre Agora"
+  secondaryBtnText="Crie sua conta"
+  (submit)="submit()"
+  (navigate)="navigate()"
+  [disablePrimaryBtn]="!loginForm.valid"
+>
+
+  <form [formGroup]="loginForm">
+
+    <app-primary-input
+    formControlName="email"
+    inputName='email'
+    type="email"
+    label='Email'
+    placeholder='Digite seu email'
+    >
+
+      <img src="assets/svg/mail-icon.svg" alt="email icon" />
+    </app-primary-input>
+
+    <app-primary-input
+    formControlName="password"
+    inputName='password'
+    type="password"
+    label='Senha'
+    placeholder='Digite sua senha'
+    >
+      <img src="assets/svg/password-icon.svg" alt="password icon" />
+    </app-primary-input>
+    <span>Esqueceu a senha?</span>
+  </form>
+
+
+
+</app-default-login-layout>

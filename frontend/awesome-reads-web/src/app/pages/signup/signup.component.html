@@ -1,0 +1,59 @@
+<app-default-login-layout
+  title="Cadastre sua conta"
+  primaryBtnText="Cadastre Agora"
+  secondaryBtnText="Entre com sua conta"
+  (submit)="submit()"
+  (navigate)="navigate()"
+  [disablePrimaryBtn]="!signupForm.valid"
+>
+
+  <form [formGroup]="signupForm">
+
+
+    <app-primary-input
+    formControlName="nome"
+    inputName='nome'
+    type="text"
+    label='Nome'
+    placeholder='Digite seu nome'
+    >
+
+      <img src="assets/svg/mail-icon.svg" alt="email icon" />
+    </app-primary-input>
+
+    <app-primary-input
+    formControlName="email"
+    inputName='email'
+    type="email"
+    label='Email'
+    placeholder='Digite seu email'
+    >
+
+      <img src="assets/svg/mail-icon.svg" alt="email icon" />
+    </app-primary-input>
+
+    <app-primary-input
+    formControlName="senha"
+    inputName='senha'
+    type="password"
+    label='Senha'
+    placeholder='Digite sua senha'
+    >
+      <img src="assets/svg/password-icon.svg" alt="password icon" />
+    </app-primary-input>
+
+    <!-- <app-primary-input
+    formControlName="passwordConfirm"
+    inputName='passwordConfirm'
+    type="password"
+    label='Confirme sua senha'
+    placeholder='Confirme sua senha'
+    >
+      <img src="assets/svg/password-icon.svg" alt="password icon" />
+    </app-primary-input> -->
+
+  </form>
+
+
+
+</app-default-login-layout>
