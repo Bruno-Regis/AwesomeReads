@@ -4,6 +4,21 @@ using AwesomeReads.Application;
 
 var builder = WebApplication.CreateBuilder(args);
 
+// 1) Registra CORS
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AngularDev", policy =>
+    {
+        policy
+            .WithOrigins("http://localhost:4200", "https://localhost:4200")
+            .AllowAnyHeader()
+            .AllowAnyMethod()
+            // só use isso se você precisar mandar cookie/Authorization com credenciais do browser
+            // .AllowCredentials()
+            ;
+    });
+});
+
 // Add services to the container.
 
 builder.Services.AddControllers();
@@ -31,6 +46,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseCors("AngularDev"); // <-- antes de Authorization/MapControllers
 
 app.UseAuthorization();
 
