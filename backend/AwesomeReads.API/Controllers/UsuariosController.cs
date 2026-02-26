@@ -1,14 +1,17 @@
 ﻿using AwesomeReads.Application.Commands.UsersCommands.InsertUser;
 using AwesomeReads.Application.Commands.UsuariosCommands.DeleteUsuarios;
+using AwesomeReads.Application.Commands.UsuariosCommands.LoginCommands;
 using AwesomeReads.Application.Queries.UsersQueries.GetAllUsers;
 using AwesomeReads.Application.Queries.UsuariosQueries.GetUsuarioById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AwesomeReads.API.Controllers
 {
     [Route("api/usuarios")]
     [ApiController]
+    [Authorize]
     public class UsuariosController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -44,6 +47,7 @@ namespace AwesomeReads.API.Controllers
 
         // POST api/usuarios
         [HttpPost]
+        [AllowAnonymous]
         public async Task<IActionResult> Post([FromBody] InsertUsuariosCommand command)
         {
             var result = await _mediator.Send(command);
@@ -61,6 +65,17 @@ namespace AwesomeReads.API.Controllers
             if (!result.IsSuccess)
                 return BadRequest(result.Message);
             return NoContent();
+        }
+
+        // api/usuarios/Login
+        [HttpPut]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login(LoginCommand command)
+        {
+            var result = await _mediator.Send(command);
+            if (!result.IsSuccess)
+                return BadRequest(result.Message);
+            return Ok(result);
         }
     }
 }

@@ -38,6 +38,12 @@ namespace AwesomeReads.Infrastructure.Persistence.Repositories
             return usuarios;
         }
 
+        public Task<Usuario?> GetByCredentials(string email, string senha)
+        {
+            var usuario = _context.Usuarios.SingleOrDefaultAsync(u => u.Email == email && u.Senha == senha);
+            return usuario; 
+        }
+
         public async Task<Usuario?> GetByIdAsync(int id)
         {
             return await _context.Usuarios.SingleOrDefaultAsync(u => u.Id == id);

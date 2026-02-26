@@ -10,6 +10,7 @@ namespace AwesomeReads.Core.Repositories
         Task<int> AddAsync(Usuario usuario);
         Task<bool> ExistsAsync(int id);
         Task<bool> ExistsEmailAsync(string email);
+        Task<Usuario?> GetByCredentials(string email, string senha);
         Task UpdateAsync(Usuario usuario);
     }
 }

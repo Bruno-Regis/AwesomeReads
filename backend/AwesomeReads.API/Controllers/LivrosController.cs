@@ -3,6 +3,7 @@ using AwesomeReads.Application.Commands.LivrosCommands.InsertLivros;
 using AwesomeReads.Application.Queries.LivrosQueries.GetAllLivros;
 using AwesomeReads.Application.Queries.LivrosQueries.GetLivrosById;
 using MediatR;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace AwesomeReads.API.Controllers
@@ -19,6 +20,7 @@ namespace AwesomeReads.API.Controllers
 
         // GET api/livros
         [HttpGet]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             var query = new GetAllLivrosQuery();
