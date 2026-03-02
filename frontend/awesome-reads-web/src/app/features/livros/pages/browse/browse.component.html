@@ -1,0 +1,15 @@
+<h1>Browse de Livros</h1>
+
+<ng-container *ngIf="livros$ | async as livros; else loading">
+  <p *ngIf="livros.length === 0">Nenhum livro cadastrado.</p>
+
+    <ul>
+    <li *ngFor="let livro of livros">
+      <strong>{{ livro.titulo}}</strong> — {{ livro.autor}}
+    </li>
+  </ul>
+</ng-container>
+
+<ng-template #loading>
+  <p>Carregando...</p>
+</ng-template>

@@ -23,7 +23,7 @@ export class PrimaryInputComponent implements ControlValueAccessor {
   @Input() placeholder: string = '';
   @Input() label: string = '';
   @Input() inputName: string = '';
-  
+
 
   value: string = '';
   onChange: any = () => {};
@@ -31,9 +31,13 @@ export class PrimaryInputComponent implements ControlValueAccessor {
 
   onInput(event: Event) {
     const value = (event.target as HTMLInputElement).value;
+    this.value = value;      // <-- importante
     this.onChange(value);
   }
 
+  onBlur() {
+  this.onTouched();
+}
 
   writeValue(value: any): void {
     this.value = value;

@@ -68,13 +68,13 @@ namespace AwesomeReads.API.Controllers
         }
 
         // api/usuarios/Login
-        [HttpPut]
+        [HttpPut("login")]
         [AllowAnonymous]
         public async Task<IActionResult> Login(LoginCommand command)
         {
             var result = await _mediator.Send(command);
             if (!result.IsSuccess)
-                return BadRequest(result.Message);
+                return Unauthorized(result.Message);
             return Ok(result);
         }
     }

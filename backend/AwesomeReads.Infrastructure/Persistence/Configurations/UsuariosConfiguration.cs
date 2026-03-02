@@ -39,6 +39,10 @@ namespace AwesomeReads.Infrastructure.Persistence.Configurations
                 .HasDefaultValueSql("CURRENT_TIMESTAMP")
                 .IsRequired();
 
+            builder.Property(u => u.Role)
+               .HasDefaultValue("leitor")
+               .IsRequired();
+
             // relacionamento 1:N com avaliação
             builder
                 .HasMany(u => u.Avaliacoes)

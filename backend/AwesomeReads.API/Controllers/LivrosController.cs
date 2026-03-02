@@ -20,7 +20,7 @@ namespace AwesomeReads.API.Controllers
 
         // GET api/livros
         [HttpGet]
-        [Authorize]
+        //[Authorize]
         public async Task<IActionResult> GetAll()
         {
             var query = new GetAllLivrosQuery();

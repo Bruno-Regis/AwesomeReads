@@ -26,6 +26,8 @@ namespace AwesomeReads.Application.Commands.UsersCommands.InsertUser
             
             request.Senha = hash;
 
+            request.Role = "leitor";
+
             var usuario = request.ToEntity();
             await _usuarioRepository.AddAsync(usuario);
 
