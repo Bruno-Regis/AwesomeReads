@@ -1,0 +1,22 @@
+<!-- <form [formGroup]="reviewForm">
+  <label for="nota">Nota:</label>
+  <input type="number" id="nota" formControlName="nota" min="1" max="5">
+
+  <label for="descricao">Descrição:</label>
+  <textarea id="descricao" formControlName="descricao"></textarea>
+
+  <button type="submit" (click)="enviar()">Enviar Avaliação</button>
+</form> -->
+<form [formGroup]="reviewForm" (ngSubmit)="enviar()">
+  <label>
+    Nota
+    <input type="number" min="1" max="5" formControlName="nota" />
+  </label>
+
+  <label>
+    Descrição
+    <textarea formControlName="descricao"></textarea>
+  </label>
+
+  <button type="submit" [disabled]="reviewForm.invalid">Enviar</button>
+</form>

@@ -3,13 +3,20 @@
 <ng-container *ngIf="livros$ | async as livros; else loading">
   <p *ngIf="livros.length === 0">Nenhum livro cadastrado.</p>
 
-    <ul>
+  <ul>
+
     <li *ngFor="let livro of livros">
-      <strong>{{ livro.titulo}}</strong> — {{ livro.autor}}
+      <a [routerLink]="['/livros', livro.id]">
+        <strong>{{ livro.titulo }}</strong> — {{ livro.autor }}
+      </a>
     </li>
+
   </ul>
 </ng-container>
 
 <ng-template #loading>
   <p>Carregando...</p>
 </ng-template>
+
+<app-avaliacoes-form [livroId]=5 [usuarioId]=3>
+</app-avaliacoes-form>

@@ -22,5 +22,12 @@ export const routes: Routes = [
   {
     path: 'browse',
     loadComponent: () => import('./features/livros/pages/browse/browse.component').then(m => m.BrowseComponent)
+  },
+
+  {
+    path: 'livros/:id',
+    loadComponent: () => import('./features/livros/pages/livro-detail/livro-detail.component').then(m => m.LivroDetailComponent)
   }
+
+  
 ];

@@ -1,0 +1,14 @@
+<ng-container *ngIf="livro$ | async as livro">
+  <h1>{{ livro.titulo }}</h1>
+
+  <app-avaliacoes-form
+    [livroId]="livro.id"
+    [usuarioId]="usuarioId"
+    (submitted)="onSubmitAvaliacao($event)"
+  ></app-avaliacoes-form>
+</ng-container>
+
+<ng-container *ngIf="avaliacoes$ | async as avaliacoes">
+  <app-avaliacoes-list [avaliacoes]="avaliacoes"></app-avaliacoes-list>
+</ng-container>
+

@@ -10,7 +10,7 @@ namespace AwesomeReads.Application.Models
     {
         public LivroViewModel(int id, string titulo, string descricao, string iSBN, string autor,
             string editora, GeneroLivroEnum genero, int anoDePublicacao, int quantidadeDePaginas,
-            decimal notaMedia, int quantidadeDeAvaliacoes, List<AvaliacaoViewModel> avaliacoes)
+            decimal notaMedia, int quantidadeDeAvaliacoes, List<AvaliacaoItemViewModel> avaliacoes)
         {
             Id = id;
             Titulo = titulo;
@@ -37,7 +37,7 @@ namespace AwesomeReads.Application.Models
         public int QuantidadeDePaginas { get; set; }
         public decimal NotaMedia { get; set; }
         public int QuantidadeDeAvaliacoes { get; set; }
-        public List<AvaliacaoViewModel> Avaliacoes { get; set; }
+        public List<AvaliacaoItemViewModel> Avaliacoes { get; set; }
 
         public static LivroViewModel FromEntity(Livro livro)
         {
@@ -55,8 +55,8 @@ namespace AwesomeReads.Application.Models
                 livro.NotaMedia,
                 livro.Avaliacoes.Count,
                 livro.Avaliacoes?
-                    .Select(a => AvaliacaoViewModel.FromEntity(a))
-                    .ToList() ?? new List<AvaliacaoViewModel>()
+                    .Select(a => AvaliacaoItemViewModel.FromEntity(a))
+                    .ToList() ?? new List<AvaliacaoItemViewModel>()
             );
         }
     }

@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
-import { DefaultLoginLayoutComponent } from '../../components/default-login-layout/default-login-layout.component';
+import { DefaultLoginLayoutComponent } from '../../features/auth/components/default-login-layout/default-login-layout.component';
 import { FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { PrimaryInputComponent } from '../../components/primary-input/primary-input.component';
+import { PrimaryInputComponent } from '../../features/auth/components/primary-input/primary-input.component';
 import { Router } from '@angular/router';
 import { LoginService } from '../../features/auth/services/login.service';
 import { ToastrService } from 'ngx-toastr';
