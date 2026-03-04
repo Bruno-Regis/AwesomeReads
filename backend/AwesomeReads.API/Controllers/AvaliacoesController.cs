@@ -9,7 +9,7 @@ namespace AwesomeReads.API.Controllers
 {
     [Route("api/avaliacoes")]
     [ApiController]
-    [Authorize]
+    //[Authorize]
     public class AvaliacoesController : ControllerBase
     {
         private readonly IMediator _mediator;
@@ -33,7 +33,7 @@ namespace AwesomeReads.API.Controllers
 
         // POST api/avaliacoes
         [HttpPost]
-        [Authorize(Roles = "leitor")]
+        //[Authorize(Roles = "leitor")]
         public async Task<IActionResult> Post([FromBody] InsertAvaliacoesCommand command)
         {
             var result = await _mediator.Send(command);
