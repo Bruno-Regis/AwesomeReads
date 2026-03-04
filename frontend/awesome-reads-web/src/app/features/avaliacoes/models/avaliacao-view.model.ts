@@ -1,4 +1,5 @@
 export interface AvaliacaoView {
+  id: number;
   idUsuario: number;
   idLivro: number;
   nota: number;

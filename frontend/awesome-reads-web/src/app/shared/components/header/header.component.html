@@ -1,0 +1,147 @@
+<header class="sticky top-0 z-50 border-b border-[color:var(--color-header-border)] bg-[color:var(--color-header)] text-[color:var(--color-header-foreground)]">
+  <div class="container">
+    <div class="flex h-16 items-center justify-between gap-3">
+      <!-- Logo / Brand -->
+      <a
+        routerLink="/"
+        class="flex items-center gap-3 rounded-md px-2 py-1 focus:outline-none focus:ring-2 focus:ring-[color:var(--color-header-ring)]"
+        aria-label="Ir para a página inicial"
+      >
+        <div class="grid h-9 w-9 place-items-center rounded-lg bg-[color:var(--color-accent)] text-[color:var(--color-accent-foreground)] shadow-sm">
+          <span class="text-sm font-semibold">LB</span>
+        </div>
+
+        <div class="leading-tight">
+          <div class="text-sm font-semibold text-white">LivroBox</div>
+          <div class="text-xs text-[color:var(--color-header-muted)]">Catálogo & avaliações</div>
+        </div>
+      </a>
+
+      <!-- Search (desktop) -->
+      <div class="hidden lg:flex flex-1 max-w-xl px-3">
+        <label class="relative w-full">
+          <span class="sr-only">Pesquisar livro</span>
+          <input
+            [value]="query()"
+            (input)="onQueryInput($any($event.target).value)"
+            (keydown.enter)="submitSearch()"
+            type="search"
+            placeholder="Buscar livro pelo nome…"
+            class="w-full rounded-md border border-white/15 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/70
+                   focus:outline-none focus:ring-2 focus:ring-[color:var(--color-header-ring)]"
+          />
+          <button
+            type="button"
+            class="absolute right-1 top-1/2 -translate-y-1/2 rounded-md bg-[color:var(--color-accent)] px-3 py-1.5 text-xs font-semibold text-[color:var(--color-accent-foreground)] hover:opacity-90"
+            (click)="submitSearch()"
+            aria-label="Pesquisar"
+          >
+            Buscar
+          </button>
+        </label>
+      </div>
+
+      <!-- Nav (principal) -->
+      <nav class="hidden md:flex items-center gap-1">
+        <a
+          [routerLink]="['/browse']"
+          routerLinkActive="bg-white/10 text-white"
+          class="rounded-md px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-[color:var(--color-header-ring)]"
+        >
+          Browse
+        </a>
+
+        <a
+          routerLink="/meus-livros"
+          routerLinkActive="bg-white/10 text-white"
+          class="rounded-md px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-[color:var(--color-header-ring)]"
+        >
+          Meus livros
+        </a>
+
+        <a
+          routerLink="/dashboard"
+          routerLinkActive="bg-white/10 text-white"
+          class="rounded-md px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-[color:var(--color-header-ring)]"
+        >
+          Dashboard
+        </a>
+      </nav>
+
+      <!-- User actions -->
+      <div class="flex items-center gap-2">
+        <a
+          routerLink="/conta"
+          class="hidden sm:inline-flex items-center rounded-md px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white focus:outline-none focus:ring-2 focus:ring-[color:var(--color-header-ring)]"
+        >
+          Editar conta
+        </a>
+
+        <button
+          type="button"
+          class="inline-flex items-center rounded-md border border-white/15 bg-white/5 px-3 py-2 text-sm font-semibold text-white hover:bg-white/10 focus:outline-none focus:ring-2 focus:ring-[color:var(--color-header-ring)]"
+          (click)="logout()"
+        >
+          Sair
+        </button>
+      </div>
+    </div>
+
+    <!-- Search (mobile/tablet) -->
+    <div class="lg:hidden pb-3">
+      <label class="relative block">
+        <span class="sr-only">Pesquisar livro</span>
+        <input
+          [value]="query()"
+          (input)="onQueryInput($any($event.target).value)"
+          (keydown.enter)="submitSearch()"
+          type="search"
+          placeholder="Buscar livro…"
+          class="w-full rounded-md border border-white/15 bg-white/10 px-3 py-2 text-sm text-white placeholder:text-white/70
+                 focus:outline-none focus:ring-2 focus:ring-[color:var(--color-header-ring)]"
+        />
+        <button
+          type="button"
+          class="absolute right-1 top-1/2 -translate-y-1/2 rounded-md bg-[color:var(--color-accent)] px-3 py-1.5 text-xs font-semibold text-[color:var(--color-accent-foreground)] hover:opacity-90"
+          (click)="submitSearch()"
+        >
+          Buscar
+        </button>
+      </label>
+    </div>
+
+    <!-- Nav mobile -->
+    <div class="md:hidden pb-3">
+      <div class="flex gap-2 overflow-x-auto">
+        <a
+          routerLink="/browse"
+          routerLinkActive="bg-white/10 text-white"
+          class="shrink-0 rounded-md px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
+        >
+          Browse
+        </a>
+        <a
+          routerLink="/meus-livros"
+          routerLinkActive="bg-white/10 text-white"
+          class="shrink-0 rounded-md px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
+        >
+          Meus livros
+        </a>
+        <a
+          routerLink="/dashboard"
+          routerLinkActive="bg-white/10 text-white"
+          class="shrink-0 rounded-md px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
+        >
+          Dashboard
+        </a>
+        <a
+          routerLink="/conta"
+          routerLinkActive="bg-white/10 text-white"
+          class="shrink-0 rounded-md px-3 py-2 text-sm font-medium text-white/80 hover:bg-white/10 hover:text-white"
+        >
+          Editar conta
+        </a>
+      </div>
+    </div>
+  </div>
+</header>

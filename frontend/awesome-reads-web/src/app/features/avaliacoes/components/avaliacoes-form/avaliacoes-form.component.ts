@@ -1,9 +1,7 @@
 import { Component, inject, input, output } from '@angular/core';
-import { LivrosService } from '../../../livros/services/livros.service';
 import { AvaliacoesService } from '../../services/avaliacoes.service';
 import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { CreateAvaliacaoRequest } from '../../models/create-avaliacao-request.model';
-
 
 @Component({
   selector: 'app-avaliacoes-form',
@@ -34,7 +32,7 @@ enviar() {
       idLivro: +this.livroId(),
       idUsuario: +this.usuarioId(),
       nota: this.reviewForm.controls.nota.value!,
-      descricao: this.reviewForm.controls.descricao.value!.trim(),
+      descricao: this.reviewForm.controls.descricao.value!.trim()
     });
 
     this.reviewForm.reset({ nota: 0, descricao: '' });

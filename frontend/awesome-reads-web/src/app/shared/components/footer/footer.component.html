@@ -1,0 +1,100 @@
+<footer class="mt-10 border-t border-border bg-card/80 backdrop-blur">
+  <div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-8">
+    <div class="flex flex-col gap-6 sm:flex-row sm:items-start sm:justify-between">
+      <!-- Brand -->
+      <div class="space-y-2">
+        <div class="flex items-center gap-2">
+          <div class="grid h-8 w-8 place-items-center rounded-lg bg-primary text-primary-foreground shadow-sm">
+            <span class="text-xs font-semibold">LB</span>
+          </div>
+          <div class="font-semibold text-primary">LivroBox</div>
+        </div>
+
+        <p class="max-w-sm text-sm text-muted-foreground">
+          Catálogo de livros e avaliações. Feito com Angular + Tailwind.
+        </p>
+
+        <p class="text-xs text-muted-foreground">
+          © {{ year }} LivroBox. Todos os direitos reservados.
+        </p>
+      </div>
+
+      <!-- Links -->
+      <div class="grid grid-cols-2 gap-6 sm:grid-cols-3">
+        <div class="space-y-2">
+          <div class="text-sm font-semibold text-foreground">Navegação</div>
+          <ul class="space-y-1 text-sm">
+            <li>
+              <a routerLink="/browse" class="text-muted-foreground hover:text-foreground">
+                Browse
+              </a>
+            </li>
+            <li>
+              <a routerLink="/meus-livros" class="text-muted-foreground hover:text-foreground">
+                Meus livros
+              </a>
+            </li>
+            <li>
+              <a routerLink="/dashboard" class="text-muted-foreground hover:text-foreground">
+                Dashboard
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <div class="text-sm font-semibold text-foreground">Conta</div>
+          <ul class="space-y-1 text-sm">
+            <li>
+              <a routerLink="/conta" class="text-muted-foreground hover:text-foreground">
+                Editar conta
+              </a>
+            </li>
+            <li>
+              <a routerLink="/login" class="text-muted-foreground hover:text-foreground">
+                Entrar
+              </a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="space-y-2">
+          <div class="text-sm font-semibold text-foreground">Projeto</div>
+          <ul class="space-y-1 text-sm">
+            <li>
+              <a href="#" class="text-muted-foreground hover:text-foreground">
+                Sobre
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-muted-foreground hover:text-foreground">
+                Ajuda
+              </a>
+            </li>
+            <li>
+              <a href="#" class="text-muted-foreground hover:text-foreground">
+                Política de privacidade
+              </a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <!-- Bottom row -->
+    <div class="mt-8 flex flex-col gap-3 border-t border-border pt-5 sm:flex-row sm:items-center sm:justify-between">
+      <p class="text-xs text-muted-foreground">
+        Dica: use a busca no topo para encontrar livros rapidamente.
+      </p>
+
+      <div class="flex items-center gap-3">
+        <a
+          class="text-xs font-semibold text-primary hover:underline"
+          routerLink="/browse"
+        >
+          Voltar ao browse
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>

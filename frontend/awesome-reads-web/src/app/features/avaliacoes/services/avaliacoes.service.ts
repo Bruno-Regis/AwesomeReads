@@ -10,7 +10,7 @@ import { ApiResponse } from '../../../shared/interfaces/api-response.interface';
 })
 export class AvaliacoesService {
 
-   private _httpClient = inject(HttpClient);
+  private _httpClient = inject(HttpClient);
   apiUrl = `https://localhost:7149/api/avaliacoes`;
 
   insertAvaliacao(avaliacao: CreateAvaliacaoRequest){
@@ -23,5 +23,8 @@ export class AvaliacoesService {
       .pipe(map(res => res.data));
   }
 
+  deleteAvaliacao(idAvaliacao: number) {
+    return this._httpClient.delete(`${this.apiUrl}/${idAvaliacao}`);
+  }
 
 }

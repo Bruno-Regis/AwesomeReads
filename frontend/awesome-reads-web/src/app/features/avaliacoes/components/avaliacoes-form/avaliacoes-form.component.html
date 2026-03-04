@@ -7,7 +7,7 @@
 
   <button type="submit" (click)="enviar()">Enviar Avaliação</button>
 </form> -->
-<form [formGroup]="reviewForm" (ngSubmit)="enviar()">
+<!-- <form [formGroup]="reviewForm" (ngSubmit)="enviar()">
   <label>
     Nota
     <input type="number" min="1" max="5" formControlName="nota" />
@@ -19,4 +19,66 @@
   </label>
 
   <button type="submit" [disabled]="reviewForm.invalid">Enviar</button>
+</form> -->
+<form
+  [formGroup]="reviewForm"
+  (ngSubmit)="enviar()"
+  class="space-y-4"
+>
+  <!-- Nota -->
+  <div class="space-y-1">
+    <label class="text-sm font-semibold text-foreground">Nota</label>
+
+    <select
+      formControlName="nota"
+      class="w-full rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground
+             focus:outline-none focus:ring-2 focus:ring-ring"
+    >
+      <option [ngValue]="0">0</option>
+      <option [ngValue]="1">1</option>
+      <option [ngValue]="2">2</option>
+      <option [ngValue]="3">3</option>
+      <option [ngValue]="4">4</option>
+      <option [ngValue]="5">5</option>
+    </select>
+
+    <p
+      *ngIf="reviewForm.controls.nota.touched && reviewForm.controls.nota.invalid"
+      class="text-xs text-destructive"
+    >
+      Informe uma nota.
+    </p>
+  </div>
+
+  <!-- Descrição -->
+  <div class="space-y-1">
+    <label class="text-sm font-semibold text-foreground">Comentário</label>
+
+    <textarea
+      formControlName="descricao"
+      rows="4"
+      placeholder="Escreva sua opinião (o que gostou, o que não gostou, para quem recomenda...)"
+      class="w-full resize-none rounded-md border border-input bg-background px-3 py-2 text-sm text-foreground
+             placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+    ></textarea>
+
+    <p
+      *ngIf="reviewForm.controls.descricao.touched && reviewForm.controls.descricao.invalid"
+      class="text-xs text-destructive"
+    >
+      Escreva um comentário.
+    </p>
+  </div>
+
+  <!-- Ação -->
+  <div class="flex items-center justify-end gap-2">
+    <button
+      type="submit"
+      class="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground
+             hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-ring disabled:opacity-50 disabled:pointer-events-none"
+      [disabled]="reviewForm.invalid"
+    >
+      Enviar avaliação
+    </button>
+  </div>
 </form>

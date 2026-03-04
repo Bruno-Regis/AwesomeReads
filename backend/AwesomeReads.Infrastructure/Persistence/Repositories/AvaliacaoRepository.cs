@@ -26,6 +26,8 @@ namespace AwesomeReads.Infrastructure.Persistence.Repositories
         {
             var avaliacoes = await _context
                 .Avaliacoes
+                .Include(a => a.Usuario)
+                .Include(a => a.Livro)
                 .Where(a => a.IdLivro == livroId)
                 .Where(a => !a.IsDeleted)
                 .ToListAsync();
@@ -35,9 +37,9 @@ namespace AwesomeReads.Infrastructure.Persistence.Repositories
 
         public async Task<Avaliacao?> GetDetailsByIdAsync(int id)
         {
-           return await _context
-                .Avaliacoes
-                .Include(a => a.Usuario)
+            return await _context
+                 .Avaliacoes
+                 .Include(a => a.Usuario)
                 .Include(a => a.Livro)
                 .SingleOrDefaultAsync(a => a.Id == id);
         }
