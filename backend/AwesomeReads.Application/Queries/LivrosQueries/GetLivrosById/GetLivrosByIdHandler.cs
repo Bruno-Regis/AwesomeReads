@@ -2,8 +2,6 @@
 using AwesomeReads.Core.Repositories;
 using MediatR;
 
-
-
 namespace AwesomeReads.Application.Queries.LivrosQueries.GetLivrosById
 {
     public class GetLivrosByIdHandler : IRequestHandler<GetLivrosByIdQuery, ResultViewModel<LivroViewModel>>

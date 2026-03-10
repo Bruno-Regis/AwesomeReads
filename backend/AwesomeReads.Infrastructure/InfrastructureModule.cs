@@ -1,5 +1,6 @@
 ﻿using AwesomeReads.Core.Repositories;
 using AwesomeReads.Infrastructure.Auth;
+using AwesomeReads.Infrastructure.ExternalServices;
 using AwesomeReads.Infrastructure.Persistence;
 using AwesomeReads.Infrastructure.Persistence.Repositories;
 using Microsoft.AspNetCore.Authentication.JwtBearer;
@@ -7,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.IdentityModel.Tokens;
+using System.ComponentModel.Design;
 using System.Text;
 
 namespace AwesomeReads.Infrastructure
@@ -18,7 +20,8 @@ namespace AwesomeReads.Infrastructure
             services
                 .AddData(configuration)
                 .AddAuth(configuration)
-                .AddRepositories();
+                .AddRepositories()
+                .AddExternalServices();
 
             return services;
         }
@@ -59,6 +62,16 @@ namespace AwesomeReads.Infrastructure
                 });
 
             services.AddScoped<IAuthService, AuthService>();
+            return services;
+        }
+        private static IServiceCollection AddExternalServices(this IServiceCollection services)
+        {
+            services.AddHttpClient<IBookService, BookService>(client =>
+            {
+                client.BaseAddress = new Uri("https://viacep.com.br/");
+                client.Timeout = TimeSpan.FromSeconds(10);
+            });
+
             return services;
         }
     }
