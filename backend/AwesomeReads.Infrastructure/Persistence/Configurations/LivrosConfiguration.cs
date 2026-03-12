@@ -72,10 +72,9 @@ namespace AwesomeReads.Infrastructure.Persistence.Configurations
                 .HasForeignKey(a => a.IdLivro)
                 .OnDelete(DeleteBehavior.Cascade);
 
-            builder
-                .Property(l => l.CapaLivro)
-                .HasMaxLength(5242880)
-                .IsRequired(false);
+            builder.Property(l => l.CapaLivro)
+             .HasMaxLength(500)
+             .IsRequired(false);
         }
     }
 }

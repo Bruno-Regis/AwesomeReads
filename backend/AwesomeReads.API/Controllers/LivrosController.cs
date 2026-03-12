@@ -1,4 +1,5 @@
-﻿using AwesomeReads.Application.Commands.LivrosCommands.DeleteLivros;
+﻿using AwesomeReads.API.Contracts.Livros;
+using AwesomeReads.Application.Commands.LivrosCommands.DeleteLivros;
 using AwesomeReads.Application.Commands.LivrosCommands.InsertLivros;
 using AwesomeReads.Application.Queries.LivrosQueries.GetAllLivros;
 using AwesomeReads.Application.Queries.LivrosQueries.GetLivrosById;
@@ -43,15 +44,17 @@ namespace AwesomeReads.API.Controllers
 
         // POST api/usuarios
         [HttpPost]
-        public async Task<IActionResult> Post([FromBody] InsertLivrosCommand command)
+        [Consumes("multipart/form-data")]
+        public async Task<IActionResult> Post([FromForm] InsertLivrosCommand command)
         {
             var result = await _mediator.Send(command);
-            if(!result.IsSuccess)
-            {
+
+            if (!result.IsSuccess)
                 return BadRequest(result.Message);
-            }
-            return CreatedAtAction(nameof(GetById), new { id = result.Data }, command);
+
+            return CreatedAtAction(nameof(GetById), new { id = result.Data }, result);
         }
+
         // DELETE api/usuarios/1234
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)

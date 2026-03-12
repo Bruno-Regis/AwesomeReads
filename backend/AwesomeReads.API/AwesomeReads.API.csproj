@@ -14,12 +14,17 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
     </PackageReference>
     <PackageReference Include="Scalar.AspNetCore" Version="2.12.34" />
+    <PackageReference Include="Swashbuckle.AspNetCore" Version="10.1.5" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\AwesomeReads.Application\AwesomeReads.Application.csproj" />
     <ProjectReference Include="..\AwesomeReads.Core\AwesomeReads.Core.csproj" />
     <ProjectReference Include="..\AwesomeReads.Infrastructure\AwesomeReads.Infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\images\livros\" />
   </ItemGroup>
 
 </Project>

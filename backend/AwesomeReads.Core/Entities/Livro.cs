@@ -30,11 +30,11 @@ namespace AwesomeReads.Core.Entities
         public int AnoDePublicacao { get; private set; }
         public int QuantidadeDePaginas { get; private set; }
         public decimal NotaMedia { get; private set; }
-        public byte[] CapaLivro { get; private set; }
+        public string? CapaLivro { get; private set; }
         public List<Avaliacao> Avaliacoes { get; private set; }
 
         
-        public void AtualizarCapaLivro(byte[] capa)
+        public void AtualizarCapaLivro(string capa)
         {
             CapaLivro = capa;
         }

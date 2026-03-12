@@ -2,6 +2,7 @@
 using AwesomeReads.Core.Entities;
 using AwesomeReads.Core.Enums;
 using MediatR;
+using Microsoft.AspNetCore.Http;
 
 namespace AwesomeReads.Application.Commands.LivrosCommands.InsertLivros
 {
@@ -16,6 +17,7 @@ namespace AwesomeReads.Application.Commands.LivrosCommands.InsertLivros
         public int AnoDePublicacao { get; set; }
         public int QuantidadeDePaginas { get; set; }
 
+        public IFormFile? CapaLivro { get; set; }
         public Livro ToEntity()
             => new(Titulo, Descricao, ISBN, Autor, Editora, Genero, AnoDePublicacao, QuantidadeDePaginas);
     }

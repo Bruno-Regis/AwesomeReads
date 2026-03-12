@@ -8,7 +8,7 @@ namespace AwesomeReads.Application.Models
     {
         public AvaliacaoViewModel(int id, string descricao, int nota, string nome, string email,
             string titulo, string descricaoLivro, string iSBN, string autor, string editora,
-            GeneroLivroEnum genero, int anoDePublicacao, int quantidadeDePaginas, decimal notaMedia, byte[] capaLivro)
+            GeneroLivroEnum genero, int anoDePublicacao, int quantidadeDePaginas, decimal notaMedia, string? capaLivro)
         {
             Id = id;
             Descricao = descricao;
@@ -44,7 +44,7 @@ namespace AwesomeReads.Application.Models
         public int AnoDePublicacao { get;  set; }
         public int QuantidadeDePaginas { get;  set; }
         public decimal NotaMedia { get;  set; }
-        public byte[] CapaLivro { get;  set; }
+        public string? CapaLivro { get;  set; }
 
 
         public static AvaliacaoViewModel FromEntity(Avaliacao avaliacao)
