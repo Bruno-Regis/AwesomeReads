@@ -1,5 +1,4 @@
-﻿using AwesomeReads.API.Contracts.Livros;
-using AwesomeReads.Application.Commands.LivrosCommands.DeleteLivros;
+﻿using AwesomeReads.Application.Commands.LivrosCommands.DeleteLivros;
 using AwesomeReads.Application.Commands.LivrosCommands.InsertLivros;
 using AwesomeReads.Application.Queries.LivrosQueries.GetAllLivros;
 using AwesomeReads.Application.Queries.LivrosQueries.GetLivrosById;
@@ -21,7 +20,7 @@ namespace AwesomeReads.API.Controllers
 
         // GET api/livros
         [HttpGet]
-        //[Authorize]
+        [Authorize]
         public async Task<IActionResult> GetAll()
         {
             var query = new GetAllLivrosQuery();

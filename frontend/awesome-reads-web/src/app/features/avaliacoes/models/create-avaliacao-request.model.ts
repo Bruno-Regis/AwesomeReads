@@ -4,3 +4,4 @@ export interface CreateAvaliacaoRequest {
   nota: number;
   descricao: string;
 }
+

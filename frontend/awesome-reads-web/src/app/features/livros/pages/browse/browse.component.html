@@ -60,26 +60,24 @@
                  transition hover:-translate-y-0.5 hover:border-primary/30 hover:shadow-lg
                  focus:outline-none focus:ring-2 focus:ring-ring"
         >
-          <!-- Capa (placeholder por enquanto) -->
           <div class="aspect-[3/4] w-full bg-muted">
-            <!-- Quando tiver imagem do backend, você troca por <img> -->
             <div class="flex h-full w-full items-center justify-center">
-              <div class="text-center px-3">
-                <div class="text-xs font-semibold text-muted-foreground">CAPA</div>
-                <div class="mt-1 text-sm font-semibold text-primary line-clamp-3">
-                  {{ livro.titulo }}
+              @if (livro.capaLivro) {
+                <img
+                  class="h-full w-full object-cover"
+                  [src]="'https://localhost:7149' + livro.capaLivro"
+                  [alt]="'Capa do livro ' + livro.titulo"
+                  loading="lazy"
+                />
+              } @else {
+                <div class="text-center px-3">
+                  <div class="text-xs font-semibold text-muted-foreground">Título sem Capa Disponível</div>
+                  <div class="mt-1 text-sm font-semibold text-primary line-clamp-3">
+                    {{ livro.titulo }}
+                  </div>
                 </div>
-              </div>
+              }
             </div>
-
-            <!-- Exemplo futuro:
-            <img
-              class="h-full w-full object-cover"
-              [src]="livro.capaUrlOuBase64"
-              [alt]="'Capa do livro ' + livro.titulo"
-              loading="lazy"
-            />
-            -->
           </div>
 
           <!-- Infos -->

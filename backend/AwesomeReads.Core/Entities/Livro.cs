@@ -20,7 +20,6 @@ namespace AwesomeReads.Core.Entities
             NotaMedia = 0.0m;
             Avaliacoes = new List<Avaliacao>();
         }
-
         public string Titulo { get; private set; }
         public string Descricao { get; private set; }
         public string ISBN { get; private set; }
@@ -47,8 +46,11 @@ namespace AwesomeReads.Core.Entities
 
         public void AtualizarNotaMedia()
         {
-            NotaMedia = Avaliacoes?.Any() == true
-                ? (decimal)Avaliacoes.Where(a => !a.IsDeleted).Average(a => a.Nota) : 0.0m;
+            var avaliacoesAtivas = Avaliacoes?.Where(a => !a.IsDeleted).ToList();
+
+            NotaMedia = avaliacoesAtivas?.Any() == true
+                ? (decimal)avaliacoesAtivas.Average(a => a.Nota)
+                : 0.0m;
         }
     }
 }

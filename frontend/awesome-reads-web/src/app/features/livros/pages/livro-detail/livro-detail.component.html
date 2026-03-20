@@ -1,22 +1,3 @@
-<!-- <a [routerLink]="['/browse']">
-  voltar
-</a>
-
-
-<ng-container *ngIf="livro$ | async as livro">
-  <h1>{{ livro.titulo }}</h1>
-
-  <app-avaliacoes-form
-    [livroId]="livro.id"
-    [usuarioId]="usuarioId"
-    (submitted)="onSubmitAvaliacao($event)"
-  ></app-avaliacoes-form>
-</ng-container>
-
-<ng-container *ngIf="avaliacoes$ | async as avaliacoes">
-  <app-avaliacoes-list [avaliacoes]="avaliacoes" (deleteClicked)="onDeleteAvaliacao($event)" ></app-avaliacoes-list>
-</ng-container> -->
-
 <div class="space-y-6">
   <!-- Voltar -->
   <div class="flex items-center justify-between gap-3">
@@ -48,7 +29,16 @@
           <div class="mt-4 flex gap-4">
             <div class="hidden sm:block w-24 overflow-hidden rounded-[var(--radius-sm)] border border-border bg-muted">
               <div class="aspect-[3/4] w-full grid place-items-center">
-                <span class="text-xs font-semibold text-muted-foreground">CAPA</span>
+                @if (livro.capaLivro) {
+                  <img
+                    class="h-full w-full object-cover"
+                    [src]="'https://localhost:7149' + livro.capaLivro"
+                    [alt]="'Capa do livro ' + livro.titulo"
+                    loading="lazy"
+                  />
+                } @else {
+                  <span class="text-xs font-semibold text-muted-foreground">CAPA</span>
+                }
               </div>
             </div>
 

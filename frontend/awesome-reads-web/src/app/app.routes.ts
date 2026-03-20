@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { LoginComponent } from './pages/login/login.component';
-import { SignupComponent } from './pages/signup/signup.component';
+import { LoginComponent } from './features/usuarios/pages/login/login.component';
+import { SignupComponent } from './features/usuarios/pages/signup/signup.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
-import { AuthGuardService } from './features/auth/services/auth-guard.service';
+import { AuthGuardService } from './features/usuarios/services/auth/auth-guard.service';
 
 export const routes: Routes = [
   {
@@ -29,5 +29,5 @@ export const routes: Routes = [
     loadComponent: () => import('./features/livros/pages/livro-detail/livro-detail.component').then(m => m.LivroDetailComponent)
   }
 
-  
+
 ];

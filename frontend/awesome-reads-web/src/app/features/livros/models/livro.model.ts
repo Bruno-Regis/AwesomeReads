@@ -10,4 +10,5 @@ export interface Livro {
   quantidadeDePaginas: number;
   notaMedia: number;
   quantidadeDeAvaliacoes: number;
+  capaLivro: string;
 }
