@@ -33,7 +33,7 @@ namespace AwesomeReads.Infrastructure.Auth
             }
         }
 
-        public string GenerateToken(string email, string role)
+        public string GenerateToken(int id, string email, string role)
         {
             var issuer = _configuration["Jwt:Issuer"];
             var audience = _configuration["Jwt:Audience"];
@@ -45,6 +45,7 @@ namespace AwesomeReads.Infrastructure.Auth
 
             var claims = new List<Claim>
             {
+                new Claim(ClaimTypes.NameIdentifier, id.ToString()),
                 new Claim(ClaimTypes.Email, email),
                 new Claim(ClaimTypes.Role, role)
             };

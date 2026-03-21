@@ -3,6 +3,6 @@
     public interface IAuthService
     {
         string ComputeHash(string senha);
-        string GenerateToken(string email, string role);
+        string GenerateToken(int id, string email, string role);
     }
 }

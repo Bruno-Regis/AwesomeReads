@@ -28,7 +28,7 @@ namespace AwesomeReads.API.Controllers
             return Ok(result);
         }
 
-        // GET api/usuarios/1234
+        // GET api/livros/1234
         [HttpGet("{id}")]
         public async Task<IActionResult> GetById(int id)
         {
@@ -41,7 +41,7 @@ namespace AwesomeReads.API.Controllers
             return Ok(result);
         }
 
-        // POST api/usuarios
+        // POST api/livros
         [HttpPost]
         [Consumes("multipart/form-data")]
         public async Task<IActionResult> Post([FromForm] InsertLivrosCommand command)
@@ -54,7 +54,7 @@ namespace AwesomeReads.API.Controllers
             return CreatedAtAction(nameof(GetById), new { id = result.Data }, result);
         }
 
-        // DELETE api/usuarios/1234
+        // DELETE api/livros/1234
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {

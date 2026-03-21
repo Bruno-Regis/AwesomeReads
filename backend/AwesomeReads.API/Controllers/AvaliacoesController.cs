@@ -9,7 +9,7 @@ namespace AwesomeReads.API.Controllers
 {
     [Route("api/avaliacoes")]
     [ApiController]
-    //[Authorize]
+    [Authorize]
     public class AvaliacoesController : ControllerBase
     {
         private readonly IMediator _mediator;

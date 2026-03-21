@@ -25,7 +25,7 @@ namespace AwesomeReads.Application.Commands.UsuariosCommands.LoginCommands
             if(usuario is null)
                 return ResultViewModel<LoginResponseViewModel>.Error("Erro de login");
 
-            var token = _authService.GenerateToken(usuario.Email, usuario.Role);
+            var token = _authService.GenerateToken(usuario.Id, usuario.Email, usuario.Role);
 
             var viewModel = new LoginResponseViewModel(token);
             
