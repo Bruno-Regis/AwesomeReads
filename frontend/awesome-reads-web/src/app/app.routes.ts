@@ -2,7 +2,7 @@ import { Routes } from '@angular/router';
 import { LoginComponent } from './features/usuarios/pages/login/login.component';
 import { SignupComponent } from './features/usuarios/pages/signup/signup.component';
 import { UsuarioComponent } from './pages/usuario/usuario.component';
-import { AuthGuardService } from './features/usuarios/services/auth/auth-guard.service';
+import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
@@ -16,12 +16,13 @@ export const routes: Routes = [
   {
     path: '*usuario*',
     component: UsuarioComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [authGuard]
   },
 
   {
     path: 'browse',
-    loadComponent: () => import('./features/livros/pages/browse/browse.component').then(m => m.BrowseComponent)
+    loadComponent: () => import('./features/livros/pages/browse/browse.component').then(m => m.BrowseComponent),
+    canActivate: [authGuard]
   },
 
   {

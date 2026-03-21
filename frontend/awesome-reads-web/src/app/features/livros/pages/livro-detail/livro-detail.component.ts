@@ -3,6 +3,7 @@ import { AvaliacoesFormComponent } from "../../../avaliacoes/components/avaliaco
 import { AvaliacoesListComponent } from "../../../avaliacoes/components/avaliacoes-list/avaliacoes-list.component";
 import { AvaliacoesService } from '../../../avaliacoes/services/avaliacoes.service';
 import { LivrosService } from '../../services/livros.service';
+import { LoginService } from '../../../usuarios/services/login.service';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { combineLatest, map, switchMap } from 'rxjs';
 import { CreateAvaliacaoRequest } from '../../../avaliacoes/models/create-avaliacao-request.model';
@@ -20,10 +21,11 @@ export class LivroDetailComponent {
   private route = inject(ActivatedRoute);
   private _avaliacoesService = inject(AvaliacoesService);
   private _livrosService = inject(LivrosService);
+  private _loginService = inject(LoginService);
 
   private refreshToken = signal<number>(0);
 
-  usuarioId = 3; // Substitua pelo ID do usuário logado
+  usuarioId = this._loginService.getUsuarioLogado()?.id
 
   livroId$ = this.route.paramMap.pipe(map(p => Number(p.get('id'))));
 

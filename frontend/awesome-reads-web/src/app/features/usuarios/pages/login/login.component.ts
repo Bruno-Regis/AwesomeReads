@@ -36,8 +36,11 @@ export class LoginComponent {
 
   submit() {
     this.loginService.login(this.loginForm.value.email, this.loginForm.value.password).subscribe({
-      next: () => this.toastService.success('Login realizado com sucesso!'),
-      error: () => this.toastService.error('Falha no login'),
+      next: (response) => {
+        if (response.isSuccess) {
+          this.router.navigate(['/browse']); // ← aqui
+        }
+      }
     });
   }
 

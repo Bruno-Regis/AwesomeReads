@@ -28,7 +28,7 @@ export class LoginService {
       .pipe(
         tap((response) => {
           if (response.isSuccess) {
-            sessionStorage.setItem(this.tokenKey, response.data.token);
+            localStorage.setItem(this.tokenKey, response.data.token);
           }
         })
       );
@@ -54,6 +54,23 @@ export class LoginService {
       return false;
     }
   }
+
+  getUsuarioLogado(): { id: number; email: string; role: string } | null {
+    const token = this.getToken();
+    if (!token) return null;
+
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return {
+        id: Number(payload['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']),
+        email: payload['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress'],
+        role: payload['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']
+      };
+    } catch {
+      return null;
+    }
+  }
+
 
     signup(email: string, nome: string, senha: string) {
       return this.httpClient.post<LoginResponse>( this.apiUrl + '/usuarios', { email, nome, senha })
