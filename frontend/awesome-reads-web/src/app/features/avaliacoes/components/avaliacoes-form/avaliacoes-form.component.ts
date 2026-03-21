@@ -1,6 +1,6 @@
 import { Component, inject, input, output } from '@angular/core';
 import { AvaliacoesService } from '../../services/avaliacoes.service';
-import { FormControl, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
+import { FormControl, FormGroup, Validators, ReactiveFormsModule} from '@angular/forms';
 import { CreateAvaliacaoRequest } from '../../models/create-avaliacao-request.model';
 
 @Component({

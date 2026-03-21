@@ -25,7 +25,7 @@ export class LivroDetailComponent {
 
   private refreshToken = signal<number>(0);
 
-  usuarioId = this._loginService.getUsuarioLogado()?.id
+  usuarioId = this._loginService.getUsuarioLogado()?.id ?? 0;
 
   livroId$ = this.route.paramMap.pipe(map(p => Number(p.get('id'))));
 
