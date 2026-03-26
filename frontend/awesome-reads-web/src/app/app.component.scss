@@ -1,0 +1,17 @@
+:host {
+  min-height: 100vh;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+}
+
+.container-main {
+  margin: 0 auto;
+  max-width: 72rem; /* ~ Tailwind max-w-6xl */
+  padding: 1.5rem 1rem;
+}
+
+.full-main {
+  width: 100%;
+  min-height: 100vh;
+  padding: 0;
+}

@@ -1,23 +1,20 @@
 import { Routes } from '@angular/router';
 import { LoginComponent } from './features/usuarios/pages/login/login.component';
 import { SignupComponent } from './features/usuarios/pages/signup/signup.component';
-import { UsuarioComponent } from './pages/usuario/usuario.component';
 import { authGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
   {
     path: 'login',
-    component: LoginComponent
+    component: LoginComponent,
+    data: { fullBleed: true },
   },
     {
     path: 'signup',
-    component: SignupComponent
+    component: SignupComponent,
+    data: { fullBleed: true },
   },
-  {
-    path: '*usuario*',
-    component: UsuarioComponent,
-    canActivate: [authGuard]
-  },
+
 
   {
     path: 'browse',

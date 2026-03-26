@@ -4,7 +4,8 @@ main{
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100%;
+  min-height: 100vh;
+  width: 100%;
 
   section{
     height: 100%;
@@ -16,19 +17,51 @@ main{
 
 
   .main-section{
-
+    font-family: 'Georgia', serif;
+    font-size:  24px;
     gap: 8px;
-
-
     flex-grow: 1;
-    background-color: $gray-bg;
+    padding: 0;
+    height: 100vh;
+    width: 100%;
+    background:
+        radial-gradient(900px 600px at 50% 25%,
+          color-mix(in oklab, var(--color-secondary) 22%, transparent),
+          transparent 60%),
+        radial-gradient(700px 500px at 20% 15%,
+          color-mix(in oklab, var(--color-royal-700) 18%, transparent),
+          transparent 62%),
+        radial-gradient(700px 500px at 80% 18%,
+          color-mix(in oklab, var(--color-accent) 10%, transparent),
+          transparent 65%),
+        linear-gradient(180deg,
+          color-mix(in oklab, var(--color-royal-900) 92%, black) 0%,
+          color-mix(in oklab, var(--color-royal-900) 80%, black) 60%,
+          color-mix(in oklab, var(--color-royal-900) 88%, black) 100%);
+
+      color: #e5e7eb; /* texto claro em cima do fundo escuro */
+
+      h1 {
+    color: #f8fafc;
+    letter-spacing: 0.2px;
+      }
+
+      img {
+        width: min(520px, 92%);
+        height: auto;
+
+        /* “levantar” a imagem */
+        filter: drop-shadow(0 28px 50px rgba(0, 0, 0, 0.55));
+        /* alternativa (às vezes melhor que drop-shadow):
+          box-shadow só funciona se a imagem tiver fundo/caixa, então o drop-shadow costuma ficar mais natural em SVG/PNG */
+      }
   }
 
   .form-section{
-    flex-grow: 0.3;
-    padding: 0 35px;
-    gap: 10px;
 
+    flex: 0 0 480px; /* era 420px no exemplo; ajuste p/ 460–520 se quiser */
+      padding: 0 40px;
+      gap: 10px;
     img{
       margin-bottom: 30px;
     }
@@ -79,20 +112,20 @@ main{
       cursor: pointer;
 
       &.disabled{
-        opacity: 0.5;
+        opacity: 0.7;
         cursor: not-allowed;
       }
 
       &.btnPrimary{
-        background-color: $primary-color;
+        background-color: #1b2a4a;
         color: #fff;
-        box-shadow: 0px 8px 12px 0px #9440FF33;
+        box-shadow: 0px 8px 12px 0px #22345c;
 
       }
 
         &.btnSecondary{
-        border: 1px solid $primary-color;
-        color: $primary-color;
+        border: 1px solid #2a3f6f;
+        color: #2a3f6f;
       }
     }
   }

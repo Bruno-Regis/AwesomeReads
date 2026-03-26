@@ -1,6 +1,11 @@
-<app-header></app-header>
-<main class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8 py-6 sm:py-8">
+@if (!isFullBleedRoute) {
+  <app-header></app-header>
+}
+
+<main [class.container-main]="!isFullBleedRoute" [class.full-main]="isFullBleedRoute">
   <router-outlet></router-outlet>
 </main>
 
-<app-footer></app-footer>
+@if (!isFullBleedRoute) {
+  <app-footer></app-footer>
+}
